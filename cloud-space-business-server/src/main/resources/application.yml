@@ -1,0 +1,10 @@
+server:
+  servlet:
+    context-path: /cloud-space-business-server
+  port: 8080
+
+
+
+
+
+

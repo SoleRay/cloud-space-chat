@@ -1,0 +1,15 @@
+netty:
+  host: 127.0.0.1
+  port: 8001
+  server:
+    type: nio
+    boss:
+      threads: 1
+    worker:
+      threads: 12
+
+
+
+
+
+
