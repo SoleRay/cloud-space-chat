@@ -1,4 +1,4 @@
-package cloud.space.message.server.core.handler;
+package cloud.space.message.server.handler;
 
 import io.netty.channel.ChannelDuplexHandler;
 

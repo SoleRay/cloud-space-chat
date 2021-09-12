@@ -1,5 +1,5 @@
 syntax = "proto3";
-option java_package = "cloud.space.message.server.core.bean";
+option java_package = "cloud.space.message.server.bean";
 option java_outer_classname = "ChatMessage";
 
 message Proto {

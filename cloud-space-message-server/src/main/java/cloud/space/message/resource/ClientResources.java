@@ -1,6 +1,6 @@
-package cloud.space.message.server.resource;
+package cloud.space.message.resource;
 
-import cloud.space.message.server.core.provider.EventLoopGroupProvider;
+import cloud.space.message.server.provider.EventLoopGroupProvider;
 
 public interface ClientResources {
 

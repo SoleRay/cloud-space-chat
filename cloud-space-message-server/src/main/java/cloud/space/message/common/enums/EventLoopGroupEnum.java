@@ -1,4 +1,4 @@
-package cloud.space.message.server.common.enums;
+package cloud.space.message.common.enums;
 
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.epoll.EpollEventLoopGroup;

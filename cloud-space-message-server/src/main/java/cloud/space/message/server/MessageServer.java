@@ -1,9 +1,9 @@
-package cloud.space.message.server.core;
+package cloud.space.message.server;
 
-import cloud.space.message.server.core.bean.ChatMessage;
-import cloud.space.message.server.core.handler.MessageHandler;
-import cloud.space.message.server.core.provider.EventLoopGroupProvider;
-import cloud.space.message.server.resource.ClientResources;
+import cloud.space.message.resource.ClientResources;
+import cloud.space.message.server.bean.ChatMessage;
+import cloud.space.message.server.handler.MessageHandler;
+import cloud.space.message.server.provider.EventLoopGroupProvider;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.socket.SocketChannel;

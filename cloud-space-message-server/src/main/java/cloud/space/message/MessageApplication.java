@@ -1,13 +1,13 @@
-package cloud.space.business.server;
+package cloud.space.message;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BusinessServerApplication {
+public class MessageApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BusinessServerApplication.class, args);
+        SpringApplication.run(MessageApplication.class, args);
     }
 
 }

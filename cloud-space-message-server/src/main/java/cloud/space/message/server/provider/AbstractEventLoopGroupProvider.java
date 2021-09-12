@@ -1,4 +1,4 @@
-package cloud.space.message.server.core.provider;
+package cloud.space.message.server.provider;
 
 import io.netty.channel.EventLoopGroup;
 

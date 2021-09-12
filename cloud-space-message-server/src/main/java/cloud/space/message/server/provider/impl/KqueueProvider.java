@@ -1,7 +1,7 @@
 
-package cloud.space.message.server.core.provider.impl;
+package cloud.space.message.server.provider.impl;
 
-import cloud.space.message.server.core.provider.AbstractEventLoopGroupProvider;
+import cloud.space.message.server.provider.AbstractEventLoopGroupProvider;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.ServerChannel;
 import io.netty.channel.kqueue.KQueueEventLoopGroup;

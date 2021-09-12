@@ -1,7 +1,7 @@
-package cloud.space.message.server.resource;
+package cloud.space.message.resource;
 
-import cloud.space.message.server.common.enums.EventLoopGroupEnum;
-import cloud.space.message.server.core.provider.EventLoopGroupProvider;
+import cloud.space.message.common.enums.EventLoopGroupEnum;
+import cloud.space.message.server.provider.EventLoopGroupProvider;
 import io.netty.channel.EventLoopGroup;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
