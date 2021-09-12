@@ -1,14 +1,16 @@
 package cloud.space.message.server.core;
 
+import cloud.space.message.server.core.bean.ChatMessage;
 import cloud.space.message.server.core.handler.MessageHandler;
-import cloud.space.message.server.core.handler.protobuf.ProtobufEncoder;
-import cloud.space.message.server.core.handler.protobuf.ProtobufVarint32FrameDecoder;
-import cloud.space.message.server.core.handler.protobuf.ProtobufVarint32LengthFieldPrepender;
 import cloud.space.message.server.core.provider.EventLoopGroupProvider;
 import cloud.space.message.server.resource.ClientResources;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.socket.SocketChannel;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufEncoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,9 +25,11 @@ public class MessageServer {
 
     public void start(){
         ServerBootstrap serverBootstrap = buildServer();
-        serverBootstrap.bind(clientResources.host(), clientResources.port())
-                .syncUninterruptibly();
+        ChannelFuture channelFuture = serverBootstrap.bind(clientResources.host(), clientResources.port()).syncUninterruptibly();
         log.info("Message Server started on port(s): {}", clientResources.port());
+
+        //不让主线程退出
+        channelFuture.channel().closeFuture().syncUninterruptibly();
     }
 
     private ServerBootstrap buildServer() {
@@ -44,7 +48,7 @@ public class MessageServer {
             protected void initChannel(SocketChannel ch) throws Exception {
                 ch.pipeline()
                         .addLast(new ProtobufVarint32FrameDecoder())
-//                        .addLast(new ProtobufDecoder(MyMessage.getDefaultInstance()))
+                        .addLast(new ProtobufDecoder(ChatMessage.Proto.getDefaultInstance()))
                         .addLast(new ProtobufVarint32LengthFieldPrepender())
                         .addLast(new ProtobufEncoder())
                         .addLast(new MessageHandler());
